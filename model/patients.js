@@ -14,19 +14,18 @@ const patientsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    dateOfBirth: {
-        type: Date,
-        required: True,
-        default: Date.now
+    date_of_birth: {
+        type: String,
+        required: true,
     },
     department: {
         type: String,
-        required: True
+        required: true
     },
     doctor: {
         type: String,
-        required: True
+        required: true
     }
 })
 
-module.exports = mongoose.model('Patients', patientsSchema)
+module.exports = mongoose.model('Patient', patientsSchema)
