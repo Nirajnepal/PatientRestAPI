@@ -1,0 +1,17 @@
+{
+  "name": "patientrestapi",
+  "version": "1.0.0",
+  "description": "REST API service for a patient clinical data management ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Niraj Nepal (301211100)",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  },
+  "devDependencies": {}
+}
