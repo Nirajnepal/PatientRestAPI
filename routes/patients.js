@@ -5,7 +5,7 @@ const Patient = require('../model/patients')
 //Getting All Patients
 router.get('/', async (req, res) => {
     try{
-        const 
+        
     } catch {
 
     }
