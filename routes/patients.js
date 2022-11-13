@@ -37,10 +37,45 @@ router.post('/patients', async (req,res) => {
 })
 
 //Updating Patient
-router.patch('/:id', (req, res) => {
-
+router.patch('/patients/:id', getPatient, async(req, res) => {
+    if (req.body.first_name != null) {
+        res.patient.first_name = req.body.first_name
+      }
+      if (req.body.last_name != null) {
+        res.patient.first_name= req.body.last_name
+      }
+      if (req.body.address != null) {
+        res.patient.address= req.body.address
+      }
+      if (req.body.date_of_birth != null) {
+        res.patient.date_of_birth= req.body.date_of_birth
+      }
+      if (req.body.department != null) {
+        res.patient.department= req.body.department
+      }
+      if (req.body.doctor != null) {
+        res.patient.doctor= req.body.doctor
+      }
+    try {
+        const updatedPatient = await res.patient.save()
+        res.json(updatedPatient)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
 })
 
+//Deleting Patient
+router.delete('/patients/:id', getPatient, async(req, res) => {
+    try {
+        await res.patient.remove()
+        res.json({ message: 'Deleted Patient' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+
+// Function to find the patient by id 
 async function getPatient(req, res, next) {
     let patient
     try {

@@ -13,7 +13,8 @@ db.on('error', (error) => console.log(error))
 db.once('open', () => console.log('Connected to Database'))
 
 const patientsRouter =  require('./routes/patients')
-app.use('/api', patientsRouter)
+const patientRecordRouter = require('./routes/patientRecord')
+app.use('/api', patientsRouter, patientRecordRouter)
 
 app.listen(8080, ()=>{
     console.log('Server has started')
