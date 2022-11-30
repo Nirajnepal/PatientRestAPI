@@ -19,3 +19,5 @@ app.use('/api', patientsRouter, patientRecordRouter)
 app.listen(8080, ()=>{
     console.log('Server has started')
 })
+
+module.exports = app

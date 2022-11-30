@@ -3,6 +3,7 @@ const router =  express.Router()
 const Patient = require('../model/patients')
 const PatientRecord = require('../model/patientRecord')
 
+
 // Get Single Patient Records
 router.get('/patients/:id/records', getPatientRecord, async(req, res) => {
     res.json(res.patientRecord)
