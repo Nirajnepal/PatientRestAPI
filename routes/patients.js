@@ -32,7 +32,7 @@ router.post('/patients', async (req,res) => {
         const newPatient = await patients.save()
         res.status(201).json(newPatient)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json(err)
     }
 })
 
@@ -42,7 +42,7 @@ router.patch('/patients/:id', getPatient, async(req, res) => {
         res.patient.first_name = req.body.first_name
       }
       if (req.body.last_name != null) {
-        res.patient.first_name= req.body.last_name
+        res.patient.last_name= req.body.last_name
       }
       if (req.body.address != null) {
         res.patient.address= req.body.address
