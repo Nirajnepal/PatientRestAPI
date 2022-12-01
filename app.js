@@ -1,6 +1,7 @@
 const express =  require('express')
 const app = express()
 const mongoose = require('mongoose')
+const port = process.env.PORT || 8080;
 
 mongoose.connect("mongodb://127.0.0.1:27017/patients", {
     useNewUrlParser: true
@@ -16,7 +17,7 @@ const patientsRouter =  require('./routes/patients')
 const patientRecordRouter = require('./routes/patientRecord')
 app.use('/api', patientsRouter, patientRecordRouter)
 
-app.listen(8080, ()=>{
+app.listen(port, ()=>{
     console.log('Server has started')
 })
 
