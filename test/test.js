@@ -159,44 +159,44 @@ describe('Patient API', ()=>{
     });
 })
 
-describe("Patient Record API", ()=>{
-    /*
-    * Test the /POST route
-    */
-    describe('POST /api/patients', () => {
+// describe("Patient Record API", ()=>{
+//     /*
+//     * Test the /POST route
+//     */
+//     describe('POST /api/patients', () => {
     
-        it('it should POST a patient record ', (done) => {
-            let patientDetails = {
-                first_name: "John",
-                last_name: "Doe",
-                address: "21 Younge Street",
-                date_of_birth: "1996/05/10",
-                department: "Emergency",
-                doctor: "Jane Doe",
-            }
-        chai.request(server)
-            .post('/api/patients')
-            .send(patientDetails)
-            .end((err, res) => {
-                    console.log(res.body)
-                    let patientRecord = {
-                        user_id: "${res.body._id}",
-                        date: "2022-11-30",
-                        nurse_name: "Jane Doe",
-                        blood_pressure: "120/80",
-                        blood_oxygen_level: "60",
-                        heartbeat_rate: "60",
-                        height: "167",
-                        weight: "57"
-                    }
-                    chai.request(server)
-                    .post("/api/patients/"+res.body.id+"records")
-                    .send(patientRecord)
-                    .end((err, res) => {
-                        res.should.have.status(201);
-                    })
-                    done()
-            });
-        });
-    })  
-})
+//         it('it should POST a patient record ', (done) => {
+//             let patientDetails = {
+//                 first_name: "John",
+//                 last_name: "Doe",
+//                 address: "21 Younge Street",
+//                 date_of_birth: "1996/05/10",
+//                 department: "Emergency",
+//                 doctor: "Jane Doe",
+//             }
+//         chai.request(server)
+//             .post('/api/patients')
+//             .send(patientDetails)
+//             .end((err, res) => {
+//                     console.log(res.body)
+//                     let patientRecord = {
+//                         user_id: "${res.body._id}",
+//                         date: "2022-11-30",
+//                         nurse_name: "Jane Doe",
+//                         blood_pressure: "120/80",
+//                         blood_oxygen_level: "60",
+//                         heartbeat_rate: "60",
+//                         height: "167",
+//                         weight: "57"
+//                     }
+//                     chai.request(server)
+//                     .post("/api/patients/"+res.body.id+"records")
+//                     .send(patientRecord)
+//                     .end((err, res) => {
+//                         res.should.have.status(201);
+//                     })
+//                     done()
+//             });
+//         });
+//     })  
+// })

@@ -36,7 +36,7 @@ router.post('/patients/:id/records', async(req, res) => {
         const newPatientRecord = await patientRecord.save()
         res.status(201).json(newPatientRecord) 
     } catch (err) {
-        res.status(400).send(err.message.first_name)
+        res.status(400).send({ message: err.message })
     }
 })
 
