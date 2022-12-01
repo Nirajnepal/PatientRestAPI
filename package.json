@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "devstart": "nodemon app.js",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node app.js"
   },
   "author": "Niraj Nepal (301211100) Krisuv Bohara(301274636)",
   "license": "ISC",
