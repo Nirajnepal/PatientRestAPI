@@ -3,11 +3,11 @@ const app = express()
 const mongoose = require('mongoose')
 const port = process.env.PORT || 8080;
 
-mongoose.connect("mongodb://127.0.0.1:27017/patients", {
+mongoose.connect("mongodb+srv://node:node@cluster0.u5jgtoo.mongodb.net/patientsDB?retryWrites=true&w=majority" , {
     useNewUrlParser: true
 })
 
-app.use(express.json())
+app.use(express.json()) 
 
 const db = mongoose.connection
 db.on('error', (error) => console.log(error))
