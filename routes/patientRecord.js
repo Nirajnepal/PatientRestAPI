@@ -46,7 +46,7 @@ router.patch('/patients/:id/records', getPatientRecord, async(req, res) => {
       res.patientRecord.date = req.body.date
     }
     if (req.body.nurse_name != null) {
-      res.patientRecord.first_name= req.body.nurse_name
+      res.patientRecord.nurse_name= req.body.nurse_name
     }
     if (req.body.blood_oxygen_level != null) {
       res.patientRecord.blood_oxygen_level= req.body.blood_oxygen_level

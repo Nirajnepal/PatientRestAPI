@@ -107,7 +107,7 @@ describe('Patient API', ()=>{
     /*
     * Test the /PUT/:id route
     */
-    describe('/PATCH/:id book', () => {
+    describe('/PATCH/:id patient', () => {
         it('it should UPDATE a patient given the id', (done) => {
             let patientDetails = new Patient({
                 first_name: "John",
@@ -135,8 +135,8 @@ describe('Patient API', ()=>{
     /*
     * Test the /DELETE/:id route
     */
-    describe('/DELETE/:id book', () => {
-        it('it should DELETE a book given the id', (done) => {
+    describe('/DELETE/:id patient', () => {
+        it('it should DELETE a patient with the given id', (done) => {
             let patientDetails = new Patient({
                 first_name: "John",
                 last_name: "Doe",
@@ -180,7 +180,7 @@ describe('Patient API', ()=>{
 //             .end((err, res) => {
 //                     console.log(res.body)
 //                     let patientRecord = {
-//                         user_id: "${res.body._id}",
+//                         user_id: `res.body._id`,
 //                         date: "2022-11-30",
 //                         nurse_name: "Jane Doe",
 //                         blood_pressure: "120/80",

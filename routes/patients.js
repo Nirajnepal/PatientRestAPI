@@ -80,7 +80,6 @@ async function getPatient(req, res, next) {
     let patient
     try {
       patient = await Patient.findById(req.params.id)
-      console.log(patient);
       if (patient == null) {
         return res.status(404).json({ message: 'Cannot find patient' })
       }
