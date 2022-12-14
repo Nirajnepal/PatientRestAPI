@@ -2,7 +2,7 @@ const express = require('express')
 const router =  express.Router()
 const Patient = require('../model/patients')
 const PatientRecord = require('../model/patientRecord')
-
+const { isAuth } = require('../middlewares/auth/auth');
 
 // Get Single Patient Records
 router.get('/patients/:id/records', getPatientRecord, async(req, res) => {
@@ -10,7 +10,7 @@ router.get('/patients/:id/records', getPatientRecord, async(req, res) => {
 })
 
 // Get All Patient Records
-router.get('/records', async(req,res) => {
+router.get('/records', isAuth, async(req,res) => {
     try {
       const patientRecords = await PatientRecord.find()
       res.json(patientRecords)

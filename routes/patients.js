@@ -1,6 +1,7 @@
 const express = require('express')
 const router =  express.Router()
 const Patient = require('../model/patients')
+const { isAuth } = require('../middlewares/auth/auth');
 
 //Getting All Patients
 router.get('/patients', async (req, res) => {
@@ -65,7 +66,7 @@ router.patch('/patients/:id', getPatient, async(req, res) => {
 })
 
 //Deleting Patient
-router.delete('/patients/:id', getPatient, async(req, res) => {
+router.delete('/patients/:id',  getPatient, async(req, res) => {
     try {
         await res.patient.remove()
         res.json({ message: 'Deleted Patient' })
