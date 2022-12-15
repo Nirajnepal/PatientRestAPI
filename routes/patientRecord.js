@@ -36,7 +36,7 @@ router.post('/patients/:id/records', async(req, res) => {
         const newPatientRecord = await patientRecord.save()
         res.status(201).json(newPatientRecord) 
     } catch (err) {
-        res.status(400).send({ message: err.message })
+        res.status(400).send(err)
     }
 })
 
@@ -67,7 +67,7 @@ router.patch('/patients/:id/records', getPatientRecord, async(req, res) => {
       const updatedPatientRecord = await res.patientRecord.save()
       res.json(updatedPatientRecord)
   } catch (err) {
-      res.status(400).json({ message: err.message })
+      res.status(400).json(err)
   }
 })
 
@@ -77,7 +77,7 @@ router.delete('/patients/:id/records', getPatientRecord, async(req, res) => {
       await res.patientRecord.remove()
       res.json({ message: 'Patient Record Deleted' })
   } catch (err) {
-      res.status(500).json({ message: err.message })
+      res.status(500).json(err)
   }
 })
 
@@ -93,7 +93,7 @@ router.get('/records/critical', async(req, res) => {
     });
     res.json(patientRecords)
   } catch (err) {
-    res.status(500).json({ message: err.message }) 
+    res.status(500).json(err) 
   }
 })
 

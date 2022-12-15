@@ -61,7 +61,7 @@ router.patch('/patients/:id', getPatient, async(req, res) => {
         const updatedPatient = await res.patient.save()
         res.json(updatedPatient)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json(err)
     }
 })
 
@@ -71,7 +71,7 @@ router.delete('/patients/:id',  getPatient, async(req, res) => {
         await res.patient.remove()
         res.json({ message: 'Deleted Patient' })
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.status(500).json(err)
     }
 })
 
